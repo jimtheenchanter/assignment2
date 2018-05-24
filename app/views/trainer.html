@@ -1,0 +1,36 @@
+#{extends 'main.html' /}
+#{set title:'Trainer' /}
+
+#{trainermenu id:'trainerdash' /}
+
+<section class="ui raised segment">
+  <header class="ui header">
+    MemberList
+  </header>
+  <table class="ui unstackable table">
+    <thead>
+    <tr>
+      <th>Member</th>
+      <th>Assessments</th>
+    </tr>
+    </thead>
+    <tbody>
+    <div class="ui bulleted list">
+      #{list items:members, as:'member'}
+
+        <tr>
+          <td> <a href="/showMember/${member.id}" >${member.firstName} ${member.lastName}</a> </td>
+          <td> <a href="/showMember/${member.id}">Assessments: ${member.assessments.size()}</a> </td>
+          <td>
+            <form method="POST" action="/deleteMember/${member.id}">
+              <button class="ui red delete button" type="submit">Delete ${member.firstName}</button>
+            </form>
+          </td>
+        </tr>
+
+      #{/list}
+    </div>
+    </tbody>
+  </table>
+
+</section>
