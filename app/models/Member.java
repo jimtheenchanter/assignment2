@@ -34,7 +34,7 @@ public class Member extends Model
     this.password = password;
     this.height = height;
     this.startWeight = startWeight;
-    this.gender = getGender();
+    this.gender = gender;
   }
 
   public static Member findByEmail(String email)

@@ -1,11 +1,13 @@
 package controllers;
 
+import comparators.SortByDate;
 import models.Member;
 import models.Assessment;
 import play.Logger;
 import play.mvc.Controller;
 import util.GymUtil;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -22,6 +24,7 @@ public class Dashboard extends Controller
     else isIdeal = false;
     String gender = member.getGender();
     List<Assessment> assessments = member.assessments;
+    Collections.sort(assessments, new SortByDate()); //sorting by assessment dates
     render("dashboard.html", member, assessments, bmi, bmiCategory, isIdeal);
   }
 

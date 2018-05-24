@@ -73,7 +73,7 @@ public class Accounts extends Controller
   }
 
 
-  public static void editUser(String firstName, String lastName, String email, String password, String height, String startWeight, String gender)
+/*  public static void editUser(String firstName, String lastName, String email, String password, String height, String startWeight, String gender)
   {
 
     Member member = Accounts.getLoggedInMember();
@@ -90,5 +90,29 @@ public class Accounts extends Controller
     }
     Dashboard.index();
 
+  }*/
+public static void editUser(String firstName, String lastName, String email, String password, String height, String startWeight, String gender)
+{
+
+  Member member = Accounts.getLoggedInMember();
+
+  if(firstName.equals("")){
+    member.firstName = member.firstName;
+  }else{
+    member.firstName = firstName;
   }
+  member.firstName     =(firstName.equals(""))    ? member.firstName   : firstName;
+  member.lastName      =(lastName.equals(""))     ? member.lastName    : lastName;
+  member.email         =(email.equals(""))        ? member.email       : email;
+  member.height        =(height.equals(""))       ? member.height      : Float.parseFloat(height);
+  member.startWeight   =(startWeight.equals(""))  ? member.startWeight : Float.parseFloat(startWeight);
+  member.gender        =(gender.equals(""))       ? member.gender      : gender;
+  if(member.password.equals(password))
+  {
+    member.save();
+  }
+  Dashboard.index();
+
+}
+
 }
