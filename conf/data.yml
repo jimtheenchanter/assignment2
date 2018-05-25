@@ -6,7 +6,7 @@ Assessment(a1):
   waist: 38
   hip: 40
   dateOfAssessment: 2018-05-22 14:30:55.214
-  comment:
+  comment: Unmotivated at this point.
 
 Assessment(a2):
   weight: 90.0
@@ -16,7 +16,7 @@ Assessment(a2):
   waist: 38
   hip: 40
   dateOfAssessment: 2018-05-23 14:30:55.214
-  comment:
+  comment: Not so keen.
 
 Assessment(a3):
   weight: 60.0
@@ -26,11 +26,23 @@ Assessment(a3):
   waist: 32
   hip: 37
   dateOfAssessment: 2018-05-24 14:30:55.214
-  comment:
+  comment: Great enthusiasm. More cardio.
+
+
+Assessment(a4):
+  weight: 55
+  chest:  36
+  thigh: 30
+  upperArm: 16
+  waist: 32
+  hip: 37
+  dateOfAssessment: 2018-05-24 14:30:55.214
+  comment: Excellent progress
 
 Member(m1):
-  firstName: homer
-  lastName: simpson
+  firstName: Homer
+  lastName: Simpson
+  address: Springfield
   email: homer@simpson.com
   password: secret
   height: 1.7
@@ -41,8 +53,9 @@ Member(m1):
   - a2
 
 Member(m2):
-  firstName: marge
-  lastName: simpson
+  firstName: Marge
+  lastName: Simpson
+  address: Springfield
   email: marge@simpson.com
   password: secret
   height: 1.75
@@ -50,6 +63,7 @@ Member(m2):
   gender: F
   assessments:
   - a3
+  - a4
 
 Trainer(t1):
   firstName: Jim

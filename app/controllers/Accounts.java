@@ -73,24 +73,6 @@ public class Accounts extends Controller
   }
 
 
-/*  public static void editUser(String firstName, String lastName, String email, String password, String height, String startWeight, String gender)
-  {
-
-    Member member = Accounts.getLoggedInMember();
-
-    member.firstName     =(firstName.equals(""))    ? member.firstName   : firstName;
-    member.lastName      =(lastName.equals(""))     ? member.lastName    : lastName;
-    member.email         =(email.equals(""))        ? member.email       : email;
-    member.height        =(height.equals(""))       ? member.height      : Float.parseFloat(height);
-    member.startWeight   =(startWeight.equals(""))  ? member.startWeight : Float.parseFloat(startWeight);
-    member.gender        =(gender.equals(""))       ? member.gender      : gender;
-    if(member.password.equals(password))
-    {
-      member.save();
-    }
-    Dashboard.index();
-
-  }*/
 public static void editUser(String firstName, String lastName, String email, String password, String height, String startWeight, String gender)
 {
 
@@ -101,18 +83,43 @@ public static void editUser(String firstName, String lastName, String email, Str
   }else{
     member.firstName = firstName;
   }
-  member.firstName     =(firstName.equals(""))    ? member.firstName   : firstName;
-  member.lastName      =(lastName.equals(""))     ? member.lastName    : lastName;
-  member.email         =(email.equals(""))        ? member.email       : email;
-  member.height        =(height.equals(""))       ? member.height      : Float.parseFloat(height);
-  member.startWeight   =(startWeight.equals(""))  ? member.startWeight : Float.parseFloat(startWeight);
-  member.gender        =(gender.equals(""))       ? member.gender      : gender;
+
+  if(lastName.equals("")){
+    member.lastName = member.lastName;
+  }else{
+    member.lastName = lastName;
+  }
+
+  if(email.equals("")) {
+    member.email = member.email;
+  }else{
+    member.email = email;
+  }
+
+  if (height.equals(0)) {
+    member.height = member.height;
+  }else{
+    member.height = Float.parseFloat(height);
+  }
+
+  if (startWeight.equals(0)) {
+    member.startWeight = member.startWeight;
+  }else{
+    member.startWeight = Float.parseFloat(startWeight);
+  }
+
+  if (gender.equals("")) {
+    member.gender = member.gender;
+  }else{ member.gender = gender;
+
+  }
   if(member.password.equals(password))
-  {
-    member.save();
+  {member.save();
   }
   Dashboard.index();
 
 }
+
+
 
 }

@@ -2,10 +2,11 @@
 #{set title:'Profile' /}
 
 #{menu id:"profile"/}
+<div class="ui two column grid basic middle aligned segment">
+    <div class="column">
 
-<section class="ui center aligned middle aligned segment">
     <form class="ui stacked segment form" action="/update" method="POST">
-        <h3 class="ui header">Update Profile Details</h3>
+        <h3 class="ui header">Update Profile</h3>
         <div class="two fields">
             <div class="field">
                 <label>First Name</label>
@@ -48,4 +49,8 @@
 
         <button class="ui blue submit button">Submit</button>
     </form>
-</section>
+    </div>
+    <div class="column">
+        <img class="ui image" src="/public/images/todo-1.png">
+    </div>
+</div>

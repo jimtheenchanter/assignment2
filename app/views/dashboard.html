@@ -18,16 +18,31 @@
     <table class="ui center aligned unstackable table">
         <thead>
         <h3 class="ui center aligned header">Current BMI Assessment</h3>
-        <th class="ui center aligned header"><i class="user icon"></i> ${member.firstName}</th>
+        <tr>
+        <th class="ui center aligned header"><i class="user icon"></i> </th>
         #{if isIdeal}
-        <th class="ui center aligned header"><i class="green thumbs up icon"></i></th>
+        <th class="ui center aligned header"><i class="green weight icon"></i></th>
         #{/if}
         #{if !isIdeal}
-        <th class="ui center aligned header"><i class="red thumbs down icon"></i></th>
+        <th class="ui center aligned header"><i class="red weight icon"></i></th>
         #{/if}
         <th class="ui center aligned header"><i class="heartbeat icon"></i> ${bmi}</th>
-        <th class="ui center aligned header"><i class="list icon"></i> ${bmiCategory}</th>
+        <th class="ui center aligned header"><i class="doctor icon"></i> </th>
+        </tr>
+        <tr>
+            <th><h3>${member.firstName}</h3></th>
+            <th><h3>Ideal Weight Indicator</h3></th>
+            <th><h3>BMI</h3></th>
+            <th><h3>${bmiCategory}</h3></th>
+
+        </tr>
         </thead>
+        <tbody>
+       *{ <th>${member.firstName}</th>
+        <th>Ideal Weight Indicator</th>
+        <th>BMI</th>
+        <th>${bmiCategory}</th>}*
+        </tbody>
 
     </table>
 
@@ -70,7 +85,7 @@
             </div>
         </div>
 
-        <button class="ui blue submit button">Add Assessment</button>
+        <button class="ui blue submit button" name="addAssessment">Add Assessment</button>
     </form>
 #{/if}
 

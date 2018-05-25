@@ -8,7 +8,7 @@ import play.mvc.Controller;
 import util.GymUtil;
 
 import java.util.Collections;
-import java.util.Date;
+//import java.util.Date;
 import java.util.List;
 
 public class Dashboard extends Controller
@@ -18,11 +18,12 @@ public class Dashboard extends Controller
     Logger.info("Rendering Dashboard");
     Member member = Accounts.getLoggedInMember();
     double bmi = GymUtil.calculateBMI(member,Member.latestAssessment(member));
+
     String bmiCategory = GymUtil.determineBMICategory(bmi);
-    boolean isIdeal; //if BMI category is normal then isIdeal is true
-    if (bmiCategory.equalsIgnoreCase( "NORMAL")) isIdeal = true;
-    else isIdeal = false;
-    String gender = member.getGender();
+    boolean isIdeal= GymUtil.isIdealBodyWeight(member,Member.latestAssessment(member));; //if BMI category is normal then isIdeal is true
+//    if (bmiCategory.equalsIgnoreCase( "NORMAL")) isIdeal = true;
+//    else isIdeal = false;
+//    String gender = member.getGender();
     List<Assessment> assessments = member.assessments;
     Collections.sort(assessments, new SortByDate()); //sorting by assessment dates
     render("dashboard.html", member, assessments, bmi, bmiCategory, isIdeal);
@@ -69,4 +70,5 @@ public class Dashboard extends Controller
     Logger.info("Deleting " + assessment);
     redirect("/dashboard");
   }
+
 }

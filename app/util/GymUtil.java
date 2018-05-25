@@ -6,7 +6,7 @@ import models.Member;
 public class GymUtil {
 
     public static double calculateBMI(Member m, Assessment a){
-        double bmiValue = a.weight/(m.getHeight() * m.getHeight());
+        double bmiValue = (double) a.weight/(m.getHeight() * m.getHeight());
         return bmiValue;
     }
 
