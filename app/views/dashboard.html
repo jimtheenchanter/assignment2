@@ -5,10 +5,9 @@
 #{if !isTrainer}
     #{menu id:"dashboard"/}
 #{/if}
-
-#{if isTrainer}
+#{else}
     #{trainermenu /}
-#{/if}
+#{/else}
 
 <section class="ui raised segment">
     <header class="ui center aligned header">
@@ -20,13 +19,20 @@
         <h3 class="ui center aligned header">Current BMI Assessment</h3>
         <tr>
         <th class="ui center aligned header"><i class="user icon"></i> </th>
+
         #{if isIdeal}
         <th class="ui center aligned header"><i class="green weight icon"></i></th>
         #{/if}
-        #{if !isIdeal}
+        #{else}
         <th class="ui center aligned header"><i class="red weight icon"></i></th>
+        #{/else}
+
+        #{if bmi.toString().contains(".")}
+        <th class="ui center aligned header"><i class="heartbeat icon"></i> ${bmi.toString().split("\\.")[0]}</th>
         #{/if}
-        <th class="ui center aligned header"><i class="heartbeat icon"></i> ${bmi}</th>
+        #{else}
+            <th class="ui center aligned header"><i class="heartbeat icon"></i> ${bmi}</th>
+        #{/else}
         <th class="ui center aligned header"><i class="doctor icon"></i> </th>
         </tr>
         <tr>
@@ -34,7 +40,6 @@
             <th><h3>Ideal Weight Indicator</h3></th>
             <th><h3>BMI</h3></th>
             <th><h3>${bmiCategory}</h3></th>
-
         </tr>
         </thead>
         <tbody>

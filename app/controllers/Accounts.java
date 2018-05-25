@@ -96,13 +96,13 @@ public static void editUser(String firstName, String lastName, String email, Str
     member.email = email;
   }
 
-  if (height.equals(0)) {
+  if (height.equals("")) {
     member.height = member.height;
   }else{
     member.height = Float.parseFloat(height);
   }
 
-  if (startWeight.equals(0)) {
+  if (startWeight.equals("")) {
     member.startWeight = member.startWeight;
   }else{
     member.startWeight = Float.parseFloat(startWeight);
