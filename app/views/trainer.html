@@ -12,6 +12,7 @@
     <tr>
       <th>Member</th>
       <th>Assessments</th>
+        <th></th>
     </tr>
     </thead>
     <tbody>
@@ -19,7 +20,7 @@
       #{list items:members, as:'member'}
 
         <tr>
-          <td> <a href="/showMember/${member.id}" >${member.firstName} ${member.lastName}</a> </td>
+          <td> <i class="user icon" ></i><a href="/showMember/${member.id}" >${member.firstName} ${member.lastName}</a> </td>
           <td> <a href="/showMember/${member.id}">Assessments: ${member.assessments.size()}</a> </td>
           <td>
             <form method="POST" action="/deleteMember/${member.id}">
