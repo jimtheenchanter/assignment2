@@ -38,10 +38,7 @@
         </tr>
         </thead>
         <tbody>
-       *{ <th>${member.firstName}</th>
-        <th>Ideal Weight Indicator</th>
-        <th>BMI</th>
-        <th>${bmiCategory}</th>}*
+
         </tbody>
 
     </table>
@@ -85,7 +82,7 @@
             </div>
         </div>
 
-        <button class="ui blue submit button" name="addAssessment">Add Assessment</button>
+        <button class="ui blue submit button" type="submit">Add Assessment</button>
     </form>
 #{/if}
 
@@ -131,10 +128,11 @@
                     <form method="POST" action="/addComment/${assessment.id}">
                         <div class="ui form">
                             <div class="field">
-                                <textarea placeholder="Enter comment..." name="comment"></textarea>
+                                <label>Add comment</label>
+                                <textarea rows = "2" placeholder="Enter comment..." name="comment"></textarea>
                                 <input hidden name="memberId" value="${member.id}">
-                                <button class="ui blue button" type="submit">Comment</button>
                             </div>
+                                <button class="ui blue button" type="submit">Update Comment</button>
                         </div>
                     </form>
                 </td>
