@@ -25,6 +25,12 @@ public class Accounts extends Controller
     redirect("/");
   }
 
+
+  /**
+   * method to authenticate user whether trainer or member
+   * @param email
+   * @param password
+   */
   public static void authenticate(String email, String password)
   {
     Logger.info("Attempting to authenticate with " + email + ":" + password);
@@ -38,7 +44,8 @@ public class Accounts extends Controller
         Logger.info("Authentication failed");
         redirect("/login");
       }
-    }else if(Trainer.findByEmail(email) != null) {
+
+          }else if(Trainer.findByEmail(email) != null) {
         Trainer trainer = Trainer.findByEmail(email);
         if ((trainer != null) && (trainer.checkPassword(password))) {
             Logger.info("Authentication successful");
@@ -54,12 +61,16 @@ public class Accounts extends Controller
     }
   }
 
+  /**
+   * log out method
+   */
   public static void logout()
   {
     session.clear();
     redirect ("/");
   }
 
+  //find logged in member by database ID
   public static Member getLoggedInMember()
   {
     Member member = null;
@@ -72,12 +83,24 @@ public class Accounts extends Controller
     return member;
   }
 
+  /**
+   * method for member to update their details - any blanks are set to previous
+   * @param firstName
+   * @param lastName
+   * @param email
+   * @param password
+   * @param height
+   * @param startWeight
+   * @param gender
+   */
 
 public static void editUser(String firstName, String lastName, String email, String password, String height, String startWeight, String gender)
 {
 
   Member member = Accounts.getLoggedInMember();
-
+/**
+ * if any of the fields are left blank it should fill with original details insterad of throwing an error
+ */
   if(firstName.equals("")){
     member.firstName = member.firstName;
   }else{

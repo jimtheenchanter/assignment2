@@ -1,14 +1,32 @@
 package util;
 
+
+/**
+ * This Utility class generates analytics on the status of the member based on the information taken in
+ * through the assessment and sign up forms.
+ */
+
 import models.Assessment;
 import models.Member;
 
 public class GymUtil {
 
+    /**
+     * Calulates members BMI based on assessment
+     * @param m member class
+     * @param a assessment
+     * @return BMI value as a double
+     */
     public static double calculateBMI(Member m, Assessment a){
         double bmiValue = (double) a.weight/(m.getHeight() * m.getHeight());
         return bmiValue;
     }
+
+    /**
+     * Uses calculated BMI value to categorise member's body type
+     * @param bmiValue
+     * @return String declaration
+     */
 
     public static String determineBMICategory(double bmiValue){
         String result = "";
@@ -28,7 +46,12 @@ public class GymUtil {
         return result;
     }
 
-
+    /**
+     * Uses parameters to calculate if member is ideal body weight 50 (m) or 45 (f) (+- 0.2)
+     * @param member
+     * @param assessment
+     * @return
+     */
     public static boolean isIdealBodyWeight(Member member, Assessment assessment){
         float idealWeight;
         if(member.getGender().equalsIgnoreCase("M")){

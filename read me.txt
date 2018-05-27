@@ -1,7 +1,41 @@
+James O'Brien
+20082197
 
+Web Develeopment Assignment 2
+
+Gym Tracker App.
+
+Functionality
+===============================
+Fully functional gym tracker app.
+Members can delete individual assessments.
+Date/Time for each assessment. 
+Trainers can delete any user.
++Trend via simple red/green label
+Deployed
+Git repo with version history
+Utility methods recycled from Programming assignment
+Account Settings View allowing user to change details
+Includes comment  field
+Signup + Login forms allowing new members to sign-up
+Multiple Assessments associated with single user in yaml 
+file.
+Form to add more assessments in UX.
++Current BMI & category & ideal bodyweight indicator
+
+
+
+Deployed to Heroku
+https://gymapp-jamesobrien.herokuapp.com/
+
+
+GitHub Repository
+https://github.com/jimtheenchanter/assignment2.git
+
+
+
+External sources
 
 http://java-buddy.blogspot.ie/2013/01/sort-list-of-date.html
-
-https://github.com/jimtheenchanter/assignment2.git
 
 https://stackoverflow.com/questions/27563307/use-of-if-else-tags-in-play-templates

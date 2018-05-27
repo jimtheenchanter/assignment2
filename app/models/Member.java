@@ -25,6 +25,17 @@ public class Member extends Model
   @OneToMany(cascade = CascadeType.ALL)
   public List<Assessment> assessments = new ArrayList<Assessment>();
 
+  /** Member constructor which stores the following parameters
+   *
+   * @param firstName
+   * @param lastName
+   * @param address
+   * @param email
+   * @param password
+   * @param height
+   * @param startWeight
+   * @param gender
+   */
   public Member(String firstName, String lastName, String address, String email, String password, float height, float startWeight, String gender)
   {
     this.firstName = firstName;
@@ -37,6 +48,7 @@ public class Member extends Model
     this.gender = gender;
   }
 
+  //for verifying member by password
   public static Member findByEmail(String email)
   {
     return find("email", email).first();
@@ -57,7 +69,11 @@ public class Member extends Model
     return height;
   }
 
-
+  /**
+   * constructor for latest assessment creating a new assessment if none exists
+   * @param m member fields
+   * @return a assessment
+   */
 
   public static Assessment latestAssessment(Member m){
     Assessment a;
@@ -83,6 +99,8 @@ public class Member extends Model
   return firstName;
 }
 
+
+// setter to capitalise 1st letter of firstname
   public void setFirstName()
   {
     firstName = firstName.substring(0,1).toUpperCase() + firstName.substring(1);
@@ -93,6 +111,8 @@ public class Member extends Model
     return lastName;
   }
 
+
+  //method to capitalise members initial letter in last name
   public void setLastName()
   {
     lastName = lastName.substring(0,1).toUpperCase() + lastName.substring(1);

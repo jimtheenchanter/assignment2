@@ -1,5 +1,7 @@
 package controllers;
 
+//class that holds the methods for trainer administration
+
 import models.Assessment;
 import models.Member;
 import play.Logger;
@@ -24,7 +26,7 @@ public class Trainer extends Controller
     String bmiCategory = GymUtil.determineBMICategory(bmi);
     boolean isIdeal = GymUtil.isIdealBodyWeight(member,Member.latestAssessment(member));
     List<Assessment> assessments = member.assessments;
-    boolean isTrainer = true;
+    boolean isTrainer = true;                        //declare status of user
     render("dashboard.html", member, assessments, bmi, bmiCategory, isIdeal, isTrainer);
   }
 

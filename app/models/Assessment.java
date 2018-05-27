@@ -1,4 +1,8 @@
 package models;
+/**
+ * This class captures the member's various measurements on a given date
+ * as well as a comment from trainer.
+ */
 
 import play.db.jpa.Model;
 import javax.persistence.Entity;
