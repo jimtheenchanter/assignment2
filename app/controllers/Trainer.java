@@ -5,7 +5,6 @@ import models.Member;
 import play.Logger;
 import play.mvc.Controller;
 import util.GymUtil;
-
 import java.util.List;
 
 public class Trainer extends Controller
